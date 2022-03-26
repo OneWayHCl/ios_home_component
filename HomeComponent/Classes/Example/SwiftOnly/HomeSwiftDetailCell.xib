@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZYX-o0-89i" customClass="HomeSwiftDetailCell" customModule="HomeComponent" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYX-o0-89i" id="8wz-qs-eWL" customClass="HomeSwiftDetailCell" customModule="HomeComponent" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-YI-XEQ">
+                        <rect key="frame" x="15" y="0.0" width="150" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="HGu-SQ-NDw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko6-jm-BaN">
+                        <rect key="frame" x="165" y="0.0" width="150" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="D9o-Nh-G8J"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ko6-jm-BaN" firstAttribute="top" secondItem="8wz-qs-eWL" secondAttribute="top" id="0IZ-Jh-ZgA"/>
+                    <constraint firstAttribute="bottom" secondItem="ko6-jm-BaN" secondAttribute="bottom" id="8kj-ia-qSa"/>
+                    <constraint firstAttribute="bottom" secondItem="uYL-YI-XEQ" secondAttribute="bottom" id="H9B-fz-xXT"/>
+                    <constraint firstItem="uYL-YI-XEQ" firstAttribute="leading" secondItem="8wz-qs-eWL" secondAttribute="leading" constant="15" id="HCw-84-uop"/>
+                    <constraint firstItem="uYL-YI-XEQ" firstAttribute="top" secondItem="8wz-qs-eWL" secondAttribute="top" id="ULD-7a-M8A"/>
+                    <constraint firstItem="ko6-jm-BaN" firstAttribute="leading" secondItem="uYL-YI-XEQ" secondAttribute="trailing" id="WO7-MJ-agL"/>
+                </constraints>
+                <connections>
+                    <outlet property="customLabel" destination="uYL-YI-XEQ" id="SRv-S2-QSp"/>
+                    <outlet property="customSubTitleLabel" destination="ko6-jm-BaN" id="y1S-44-Wjc"/>
+                </connections>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="261" y="-148"/>
+        </tableViewCell>
+    </objects>
+</document>
