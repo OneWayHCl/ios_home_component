@@ -6,6 +6,8 @@
 //
 
 #import "HomeViewController.h"
+#import <CWLateralSlide/UIViewController+CWLateralSlide.h>
+#import "SlideViewController.h"
 
 @interface HomeViewController ()
 
@@ -18,11 +20,42 @@
     
     self.navigationItem.title = @"首页";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+//    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 200)];
+//    headView.backgroundColor = [UIColor grayColor];
+//    self.tableView.tableHeaderView = headView;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"左侧" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemAction)];
+    self.navigationItem.leftBarButtonItem = leftItem;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    // 注册手势驱动
+    __weak typeof(self)weakSelf = self;
+    // 第一个参数为是否开启边缘手势，开启则默认从边缘50距离内有效，第二个block为手势过程中我们希望做的操作
+    [self cw_registerShowIntractiveWithEdgeGesture:NO transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
+        //NSLog(@"direction = %ld", direction);
+        if (direction == CWDrawerTransitionFromLeft) { // 左侧滑出
+            [weakSelf leftItemAction];
+        } else if (direction == CWDrawerTransitionFromRight) { // 右侧滑出
+            [weakSelf rightItemAction];
+        }
+    }];
+}
+
+- (void)leftItemAction {
+    SlideViewController *vc = [[SlideViewController alloc] init];
+    
+    CWLateralSlideConfiguration *config = [CWLateralSlideConfiguration configurationWithDistance:200 maskAlpha:0.4 scaleY:1 direction:CWDrawerTransitionFromLeft backImage:nil];
+    
+    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:config];
+}
+
+- (void)rightItemAction {
+    SlideViewController *vc = [[SlideViewController alloc] init];
+    
+    CWLateralSlideConfiguration *config = [CWLateralSlideConfiguration configurationWithDistance:0 maskAlpha:0.4 scaleY:0.8 direction:CWDrawerTransitionFromRight backImage:nil];
+    
+    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:config];
 }
 
 #pragma mark - UITableView数据源和代理方法
@@ -33,7 +66,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arc4random()%20;
+    return 30;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
