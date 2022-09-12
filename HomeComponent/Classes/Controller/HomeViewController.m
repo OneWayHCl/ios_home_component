@@ -45,7 +45,7 @@
 - (void)leftItemAction {
     SlideViewController *vc = [[SlideViewController alloc] init];
     
-    CWLateralSlideConfiguration *config = [CWLateralSlideConfiguration configurationWithDistance:200 maskAlpha:0.4 scaleY:1 direction:CWDrawerTransitionFromLeft backImage:nil];
+    CWLateralSlideConfiguration *config = [CWLateralSlideConfiguration configurationWithDistance:275.0 maskAlpha:0.4 scaleY:1 direction:CWDrawerTransitionFromLeft backImage:nil];
     
     [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:config];
 }
@@ -55,7 +55,7 @@
     
     CWLateralSlideConfiguration *config = [CWLateralSlideConfiguration configurationWithDistance:0 maskAlpha:0.4 scaleY:0.8 direction:CWDrawerTransitionFromRight backImage:nil];
     
-    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:config];
+    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeMask configuration:config];
 }
 
 #pragma mark - UITableView数据源和代理方法
